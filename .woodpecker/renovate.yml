@@ -20,10 +20,10 @@ steps:
       kubernetes:
         resources:
           requests:
-            memory: 100Mi
+            memory: 400Mi
             cpu: 100m
           limits:
-            memory: 400Mi
+            memory: 700Mi
             cpu: 1000m
 
   renovate:
@@ -42,8 +42,8 @@ steps:
       kubernetes:
         resources:
           requests:
-            memory: 100Mi
+            memory: 400Mi
             cpu: 100m
           limits:
-            memory: 400Mi
+            memory: 700Mi
             cpu: 1000m
