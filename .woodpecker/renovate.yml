@@ -16,6 +16,15 @@ steps:
       - RENOVATE_DRY_RUN=full
     when:
       - event: push
+    backend_options:
+      kubernetes:
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 100m
+          limits:
+            memory: 400Mi
+            cpu: 1000m
 
   renovate:
     image: renovate/renovate:latest
@@ -29,3 +38,12 @@ steps:
       - event: cron
         cron: renovate
       - event: manual
+    backend_options:
+      kubernetes:
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 100m
+          limits:
+            memory: 400Mi
+            cpu: 1000m
