@@ -1,0 +1,18 @@
+when:
+  event:
+    - push
+    - manual
+
+matrix:
+  RENOVATE_CONFIG_FILE:
+    - default.json
+    - renovate.json
+
+steps:
+  lint:
+    image: renovate/renovate:latest
+    pull: true
+    commands:
+      - renovate-config-validator
+    environment:
+      LOG_LEVEL: debug

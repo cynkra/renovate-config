@@ -1,0 +1,31 @@
+when:
+  event:
+    - cron
+    - push
+    - manual
+
+steps:
+  renovate-dry:
+    image: renovate/renovate:latest
+    secrets: [ renovate_token, github_com_token ]
+    pull: true
+    commands:
+      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s
+    environment:
+      - RENOVATE_PLATFORM=github
+      - RENOVATE_DRY_RUN=full
+    when:
+      - event: push
+
+  renovate:
+    image: renovate/renovate:latest
+    secrets: [ renovate_token, github_com_token ]
+    pull: true
+    commands:
+      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s
+    environment:
+      - RENOVATE_PLATFORM=github
+    when:
+      - event: cron
+        cron: renovate
+      - event: manual
