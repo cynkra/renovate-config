@@ -10,7 +10,7 @@ steps:
     secrets: [ renovate_token, github_com_token ]
     pull: true
     commands:
-      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s
+      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s cynkra/aws-zurich-ec2
     environment:
       - RENOVATE_PLATFORM=github
       - RENOVATE_DRY_RUN=full
