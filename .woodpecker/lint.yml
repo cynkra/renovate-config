@@ -16,3 +16,12 @@ steps:
       - renovate-config-validator
     environment:
       LOG_LEVEL: debug
+    backend_options:
+      kubernetes:
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 100m
+          limits:
+            memory: 400Mi
+            cpu: 800m
