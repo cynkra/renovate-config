@@ -1,15 +1,14 @@
 {
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base"],
-	"semanticCommits": "enabled",
-	"automergeStrategy": "fast-forward",
-	"platformAutomerge": true,
-	"packageRules": [
-	  {
-	    "description": "use ci scope and automerge woodpecker deps",
-	    "matchPaths": [".woodpecker/**"],
-	    "semanticCommitType": "ci",
-	    "automerge": true
-	  }
-	]
-      }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "semanticCommits": "enabled",
+  "automergeStrategy": "squash",
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "semanticCommits": "enabled"
+    }
+  ]
+}
