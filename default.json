@@ -3,7 +3,11 @@
   "extends": ["config:base"],
   "semanticCommits": "enabled",
   "automergeStrategy": "squash",
+  "autodiscover": true,
   "platformAutomerge": true,
+  "username": "renovate-cynkra[bot]",
+  "token": "5b3c710533eba7165b5daa27eac4a36f1937927a",
+  "gitAuthor": "Renovate cynkra [bot] <382538+renovate-cynkra[bot]@users.noreply.github.com>",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
