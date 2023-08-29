@@ -7,13 +7,16 @@ when:
 steps:
   renovate-dry:
     image: renovate/renovate:latest
-    secrets: [ renovate_token, github_com_token ]
+    secrets: [ private_key ]
     pull: true
     commands:
-      - renovate $${CI_REPO}
+      - echo $PRIVATE_KEY > /tmp/private-key.pem
+      - npm -g install github-app-installation-token
+      - renovate --username renovate-cynkra[bot] --token $(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private-key.pem) $${CI_REPO}
     environment:
       - RENOVATE_PLATFORM=github
       - RENOVATE_DRY_RUN=full
+      - LOG_LEVEL=debug
     when:
       - event: push
     backend_options:
@@ -28,10 +31,13 @@ steps:
 
   renovate:
     image: renovate/renovate:latest
-    secrets: [ renovate_token, github_com_token ]
+    secrets: [ private_key ]
     pull: true
     commands:
-      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s
+      - echo $PRIVATE_KEY > /tmp/private-key
+      - npm -g install github-app-installation-token
+      - export RENOVATE_TOKEN=$(npm run github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private-key)
+      - renovate $${CI_REPO}
     environment:
       - RENOVATE_PLATFORM=github
     when:
