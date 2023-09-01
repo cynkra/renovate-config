@@ -7,14 +7,18 @@ when:
 steps:
   renovate-dry:
     image: renovate/renovate:latest
-    secrets: [ private_key, renovate_token, github_com_token ]
+    secrets: [ private_key, github_com_token ]
     pull: true
     commands:
-      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s cynkra/aws-zurich-ec2
+      - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
+      - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
+      - echo $RENOVATE_TOKEN
+      - renovate $${CI_REPO}
     environment:
       - RENOVATE_PLATFORM=github
       - RENOVATE_DRY_RUN=full
       - LOG_LEVEL=debug
+      - RENOVATE_CONFIG_FILE=default.json
     when:
       - event: push
     backend_options:
@@ -29,7 +33,7 @@ steps:
 
   renovate:
     image: renovate/renovate:latest
-    secrets: [ private_key, renovate_token, github_com_token ]
+    secrets: [ private_key, github_com_token ]
     pull: true
     commands:
       - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s cynkra/aws-zurich-ec2
