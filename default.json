@@ -5,6 +5,7 @@
   "automergeStrategy": "squash",
   "autodiscover": true,
   "platformAutomerge": true,
+  "optimizeForDisabled": true,
   "username": "renovate-cynkra[bot]",
   "gitAuthor": "Renovate cynkra [bot] <41217779+renovate-cynkra[bot]@users.noreply.github.com>",
   "packageRules": [
