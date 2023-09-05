@@ -12,8 +12,11 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "semanticCommits": "enabled"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "branch"
     }
   ]
 }
-
-
