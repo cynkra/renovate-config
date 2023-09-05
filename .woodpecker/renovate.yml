@@ -11,6 +11,7 @@ steps:
     pull: true
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
+      # https://github.com/gagoar/github-app-installation-token
       - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
       - echo $RENOVATE_TOKEN
       - renovate $${CI_REPO}
@@ -19,6 +20,7 @@ steps:
       - RENOVATE_DRY_RUN=full
       - LOG_LEVEL=debug
       - RENOVATE_CONFIG_FILE=default.json
+      - RENOVATE_REDIS_URL=redis://redis-cluster-prod.rdrc1b.clustercfg.euc1.cache.amazonaws.com:6379
     when:
       - event: push
     backend_options:
@@ -36,9 +38,15 @@ steps:
     secrets: [ private_key, github_com_token ]
     pull: true
     commands:
-      - renovate $${CI_REPO} cynkra/aws-frankfurt-k8s cynkra/aws-zurich-ec2
+      - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
+      # https://github.com/gagoar/github-app-installation-token
+      - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
+      - echo $RENOVATE_TOKEN
+      - renovate $${CI_REPO}
     environment:
       - RENOVATE_PLATFORM=github
+      - RENOVATE_CONFIG_FILE=default.json
+      - RENOVATE_REDIS_URL=redis://redis-cluster-prod.rdrc1b.clustercfg.euc1.cache.amazonaws.com:6379
     when:
       - event: cron
         cron: renovate
