@@ -7,7 +7,7 @@ when:
 steps:
   renovate-dry:
     image: renovate/renovate:latest
-    secrets: [ private_key, github_com_token ]
+    secrets: [ private_key, github_com_token, aws_access_key_id, aws_secret_access_key ]
     pull: true
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
@@ -20,7 +20,9 @@ steps:
       - RENOVATE_DRY_RUN=full
       - LOG_LEVEL=debug
       - RENOVATE_CONFIG_FILE=default.json
-      # - RENOVATE_REDIS_URL=redis://redis-cluster-prod.rdrc1b.clustercfg.euc1.cache.amazonaws.com:6379
+      - RENOVATE_REPOSITORY_CACHE_TYPE=s3://cynkra-renovate-cache/github/
+      - RENOVATE_REPOSITORY_CACHE=enabled
+      - AWS_REGION=eu-central-1
     when:
       - event: push
     backend_options:
@@ -35,7 +37,7 @@ steps:
 
   renovate:
     image: renovate/renovate:latest
-    secrets: [ private_key, github_com_token ]
+    secrets: [ private_key, github_com_token, aws_access_key_id, aws_secret_access_key ]
     pull: true
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
@@ -46,7 +48,9 @@ steps:
     environment:
       - RENOVATE_PLATFORM=github
       - RENOVATE_CONFIG_FILE=default.json
-      # - RENOVATE_REDIS_URL=redis://redis-cluster-prod.rdrc1b.clustercfg.euc1.cache.amazonaws.com:6379
+      - RENOVATE_REPOSITORY_CACHE_TYPE=s3://cynkra-renovate-cache/github/
+      - RENOVATE_REPOSITORY_CACHE=enabled
+      - AWS_REGION=eu-central-1
     when:
       - event: cron
         cron: renovate
