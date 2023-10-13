@@ -46,6 +46,7 @@ steps:
       - echo $RENOVATE_TOKEN
       - renovate $${CI_REPO}
     environment:
+      - LOG_LEVEL=debug
       - RENOVATE_PLATFORM=github
       - RENOVATE_CONFIG_FILE=default.json
       - RENOVATE_REPOSITORY_CACHE_TYPE=s3://cynkra-renovate-cache/github/
