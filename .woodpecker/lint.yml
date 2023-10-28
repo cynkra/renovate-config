@@ -10,7 +10,7 @@ matrix:
 
 steps:
   lint:
-    image: renovate/renovate:latest
+    image: renovate/renovate:latest@sha256:17affa39ace8dbb78177caab39cf25851249a1381bcbb4f6fd108372128af1b9
     pull: true
     commands:
       - renovate-config-validator
