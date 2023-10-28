@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
+  "extends": ["config:recommended"],
   "semanticCommits": "enabled",
   "automergeStrategy": "squash",
   "automergeType": "branch",
@@ -9,16 +9,5 @@
   "platformAutomerge": true,
   "optimizeForDisabled": true,
   "username": "renovate-cynkra[bot]",
-  "gitAuthor": "Renovate cynkra [bot] <41217779+renovate-cynkra[bot]@users.noreply.github.com>",
-  "packageRules": [
-    {
-      "enabled": true,
-      "matchDatasources": ["docker"],
-      "pinDigests": false
-    },
-    {
-      "matchDepTypes": ["action"],
-      "pinDigests": false
-    }
-  ]
+  "gitAuthor": "Renovate cynkra [bot] <41217779+renovate-cynkra[bot]@users.noreply.github.com>"
 }
