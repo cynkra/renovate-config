@@ -5,6 +5,7 @@
   "automergeStrategy": "squash",
   "automergeType": "branch",
   "automergeMajor": false,
+  "automerge": true,
   "autodiscover": true,
   "platformAutomerge": true,
   "optimizeForDisabled": true,
