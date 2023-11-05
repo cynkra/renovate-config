@@ -7,7 +7,7 @@ when:
 steps:
   renovate-dry:
     image: renovate/renovate:37
-    secrets: [ private_key, github_com_token, aws_access_key_id, aws_secret_access_key ]
+    secrets: [ private_key, github_com_token, aws_acccess_key_id, aws_secret_access_key ]
     pull: true
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
@@ -37,7 +37,7 @@ steps:
 
   renovate:
     image: renovate/renovate:37
-    secrets: [ private_key, github_com_token, aws_access_key_id, aws_secret_access_key ]
+    secrets: [ private_key, github_com_token, aws_acccess_key_id, aws_secret_access_key ]
     pull: true
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
