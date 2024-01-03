@@ -1,0 +1,19 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    ":maintainLockFilesWeekly",
+    "schedule:automergeDaily",
+    "schedule:weekends",
+  ],
+  semanticCommits: "enabled",
+  automergeStrategy: "squash",
+  automergeType: "branch",
+  major: { automerge: false },
+  automerge: true,
+  autodiscover: true,
+  platformAutomerge: true,
+  optimizeForDisabled: true,
+  username: "renovate-cynkra[bot]",
+  gitAuthor: "Renovate cynkra [bot] <41217779+renovate-cynkra[bot]@users.noreply.github.com>",
+}
