@@ -5,8 +5,8 @@ when:
 
 matrix:
   RENOVATE_CONFIG_FILE:
-    - default.json
-    - renovate.json
+    - default.json5
+    - renovate.json5
 
 steps:
   lint:
