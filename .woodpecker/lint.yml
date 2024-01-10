@@ -25,3 +25,8 @@ steps:
           limits:
             memory: 400Mi
             cpu: 800m
+        tolerations:
+          - key: "CI"
+            operator: "Equal"
+            value: "true"
+            effect: "NoSchedule"
