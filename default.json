@@ -12,6 +12,7 @@
   "major": { "automerge": true },
   "automerge": true,
   "autodiscover": true,
+  "autodiscoverFilter": ["!cynkra/cynkraweb-assets"],
   "platformAutomerge": true,
   "optimizeForDisabled": true,
   "username": "renovate-cynkra[bot]",
