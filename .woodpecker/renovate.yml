@@ -6,7 +6,7 @@ when:
 
 steps:
   renovate-dry:
-    image: renovate/renovate:37
+    image: renovate/renovate:38
     secrets:
       [private_key, github_com_token, aws_acccess_key_id, aws_secret_access_key]
     pull: true
@@ -42,7 +42,7 @@ steps:
             effect: "NoSchedule"
 
   renovate:
-    image: renovate/renovate:37
+    image: renovate/renovate:38
     secrets:
       [private_key, github_com_token, aws_acccess_key_id, aws_secret_access_key]
     pull: true
