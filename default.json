@@ -10,7 +10,7 @@
   "automergeStrategy": "squash",
   "automergeType": "branch",
   "major": {
-    "automerge": true
+    "automerge": false
   },
   "automerge": true,
   "autodiscover": true,
@@ -130,14 +130,8 @@
   "packageRules": [
     {
       "groupName": "terraform dependencies (minor & patch)",
-      "matchManagers": [
-        "terraform"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest"
-      ]
+      "matchManagers": ["terraform"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
     }
   ]
 }
