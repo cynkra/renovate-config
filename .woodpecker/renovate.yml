@@ -10,7 +10,7 @@ steps:
     environment:
       github_com_token:
         from_secret: github_com_token
-      private_key:
+      PRIVATE_KEY:
         from_secret: private_key
       aws_acccess_key_id:
         from_secret: aws_acccess_key_id
@@ -54,7 +54,7 @@ steps:
     environment:
       github_com_token:
         from_secret: github_com_token
-      private_key:
+      PRIVATE_KEY:
         from_secret: private_key
       aws_acccess_key_id:
         from_secret: aws_acccess_key_id
