@@ -8,6 +8,8 @@ steps:
   renovate-dry:
     image: renovate/renovate:38
     environment:
+      github_com_token:
+        from_secret: github_com_token
       private_key:
         from_secret: private_key
       aws_acccess_key_id:
@@ -50,6 +52,8 @@ steps:
     image: renovate/renovate:38
     pull: true
     environment:
+      github_com_token:
+        from_secret: github_com_token
       private_key:
         from_secret: private_key
       aws_acccess_key_id:
