@@ -10,9 +10,9 @@
   "automergeStrategy": "squash",
   "automergeType": "branch",
   "major": {
-    "automerge": true
+    "automerge": false
   },
-  "automerge": true,
+  "automerge": false,
   "autodiscover": true,
   "autodiscoverFilter": [
     "!cynkra/cynkraweb-assets",
@@ -130,14 +130,8 @@
   "packageRules": [
     {
       "groupName": "terraform dependencies (minor & patch)",
-      "matchManagers": [
-        "terraform"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest"
-      ]
+      "matchManagers": ["terraform"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
     }
   ]
 }
