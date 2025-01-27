@@ -12,7 +12,7 @@
   "major": {
     "automerge": false
   },
-  "automerge": true,
+  "automerge": false,
   "autodiscover": true,
   "autodiscoverFilter": [
     "!cynkra/cynkraweb-assets",
