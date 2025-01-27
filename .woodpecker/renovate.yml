@@ -7,8 +7,21 @@ when:
 steps:
   renovate-dry:
     image: renovate/renovate:38
-    secrets:
-      [private_key, github_com_token, aws_acccess_key_id, aws_secret_access_key]
+    environment:
+      private_key:
+        from_secret: private_key
+      aws_acccess_key_id:
+        from_secret: aws_acccess_key_id
+      aws_secret_access_key:
+        from_secret: aws_secret_access_key
+      RENOVATE_PLATFORM: github
+      RENOVATE_DRY_RUN: full
+      LOG_LEVEL: debug
+      RENOVATE_CONFIG_FILE: default.json
+      RENOVATE_REPOSITORY_CACHE_TYPE: s3://cynkra-renovate-cache/github/
+      RENOVATE_REPOSITORY_CACHE: enabled
+      AWS_REGION: eu-central-1
+
     pull: true
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
@@ -16,14 +29,6 @@ steps:
       - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
       - echo $RENOVATE_TOKEN
       - renovate $${CI_REPO}
-    environment:
-      - RENOVATE_PLATFORM=github
-      - RENOVATE_DRY_RUN=full
-      - LOG_LEVEL=debug
-      - RENOVATE_CONFIG_FILE=default.json
-      - RENOVATE_REPOSITORY_CACHE_TYPE=s3://cynkra-renovate-cache/github/
-      - RENOVATE_REPOSITORY_CACHE=enabled
-      - AWS_REGION=eu-central-1
     when:
       - event: push
     backend_options:
@@ -43,22 +48,27 @@ steps:
 
   renovate:
     image: renovate/renovate:38
-    secrets:
-      [private_key, github_com_token, aws_acccess_key_id, aws_secret_access_key]
     pull: true
+    environment:
+      private_key:
+        from_secret: private_key
+      aws_acccess_key_id:
+        from_secret: aws_acccess_key_id
+      aws_secret_access_key:
+        from_secret: aws_secret_access_key
+      LOG_LEVEL: debug
+      RENOVATE_PLATFORM: github
+      RENOVATE_CONFIG_FILE: default.json
+      RENOVATE_REPOSITORY_CACHE_TYPE: s3://cynkra-renovate-cache/github/
+      RENOVATE_REPOSITORY_CACHE: enabled
+      AWS_REGION: eu-central-1
+
     commands:
       - echo -e "$PRIVATE_KEY" > /tmp/private_key.pem
       # https://github.com/gagoar/github-app-installation-token
       - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
       - echo $RENOVATE_TOKEN
       - renovate $${CI_REPO}
-    environment:
-      - LOG_LEVEL=debug
-      - RENOVATE_PLATFORM=github
-      - RENOVATE_CONFIG_FILE=default.json
-      - RENOVATE_REPOSITORY_CACHE_TYPE=s3://cynkra-renovate-cache/github/
-      - RENOVATE_REPOSITORY_CACHE=enabled
-      - AWS_REGION=eu-central-1
     when:
       - event: cron
         cron: renovate
