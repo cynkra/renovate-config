@@ -124,7 +124,7 @@
   "optimizeForDisabled": true,
   "username": "renovate-cynkra[bot]",
   "gitAuthor": "Renovate cynkra [bot] <41217779+renovate-cynkra[bot]@users.noreply.github.com>",
-  "redisUrl": "redis://redis-cluster-prod.rdrc1b.clustercfg.euc1.cache.amazonaws.com:6379",
+  "redisUrl": "redis+cluster://redis-cluster-prod.rdrc1b.clustercfg.euc1.cache.amazonaws.com:6379",
   "lockFileMaintenance": {
     "groupName": "terraform dependencies (minor & patch)"
   },
