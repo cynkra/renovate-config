@@ -16,7 +16,8 @@
   "autodiscover": true,
   "autodiscoverFilter": [
     "cynkra/runner",
-    "cynkra/aws-*"
+    "cynkra/aws-*",
+    "cynkra/renovate-config"
     // "!cynkra/cynkraweb-assets",
     // "!cynkra/FBEA",
     // "!cynkra/dynafilter",
