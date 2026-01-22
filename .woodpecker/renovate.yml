@@ -17,7 +17,7 @@ steps:
       RENOVATE_PLATFORM: github
       RENOVATE_DRY_RUN: full
       LOG_LEVEL: info
-      RENOVATE_CONFIG_FILE: default.json
+      RENOVATE_CONFIG_FILE: default.json5
       RENOVATE_REPOSITORY_CACHE_TYPE: s3://cynkra-renovate-cache/github/
       RENOVATE_REPOSITORY_CACHE: enabled
       AWS_REGION: eu-central-1
@@ -58,7 +58,7 @@ steps:
         from_secret: aws_secret_access_key
       LOG_LEVEL: info
       RENOVATE_PLATFORM: github
-      RENOVATE_CONFIG_FILE: default.json
+      RENOVATE_CONFIG_FILE: default.json5
       RENOVATE_REPOSITORY_CACHE_TYPE: s3://cynkra-renovate-cache/github/
       RENOVATE_REPOSITORY_CACHE: enabled
       AWS_REGION: eu-central-1
