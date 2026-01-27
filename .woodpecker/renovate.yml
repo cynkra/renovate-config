@@ -6,7 +6,7 @@ when:
 
 steps:
   renovate-dry:
-    image: renovate/renovate:42
+    image: renovate/renovate:38
     environment:
       PRIVATE_KEY:
         from_secret: private_key
@@ -47,7 +47,7 @@ steps:
             effect: "NoSchedule"
 
   renovate:
-    image: renovate/renovate:42
+    image: renovate/renovate:38
     pull: true
     environment:
       PRIVATE_KEY:
@@ -56,7 +56,7 @@ steps:
         from_secret: aws_acccess_key_id
       aws_secret_access_key:
         from_secret: aws_secret_access_key
-      LOG_LEVEL: info
+      LOG_LEVEL: debug
       RENOVATE_PLATFORM: github
       RENOVATE_CONFIG_FILE: default.json
       RENOVATE_REPOSITORY_CACHE_TYPE: s3://cynkra-renovate-cache/github/
