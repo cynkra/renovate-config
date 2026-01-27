@@ -6,7 +6,7 @@ when:
 
 steps:
   renovate-dry:
-    image: renovate/renovate:38
+    image: renovate/renovate:39
     environment:
       PRIVATE_KEY:
         from_secret: private_key
@@ -47,7 +47,7 @@ steps:
             effect: "NoSchedule"
 
   renovate:
-    image: renovate/renovate:38
+    image: renovate/renovate:39
     pull: true
     environment:
       PRIVATE_KEY:
@@ -80,7 +80,7 @@ steps:
             memory: 1800Mi
             cpu: 100m
           limits:
-            memory: 7000Mi
+            memory: 3000Mi
             cpu: 1000m
         tolerations:
           - key: "CI"
