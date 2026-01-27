@@ -6,7 +6,7 @@ when:
 
 steps:
   renovate-dry:
-    image: renovate/renovate:38
+    image: renovate/renovate:42
     environment:
       PRIVATE_KEY:
         from_secret: private_key
@@ -47,7 +47,7 @@ steps:
             effect: "NoSchedule"
 
   renovate:
-    image: renovate/renovate:38
+    image: renovate/renovate:42
     pull: true
     environment:
       PRIVATE_KEY:
