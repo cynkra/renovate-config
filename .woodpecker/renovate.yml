@@ -14,6 +14,8 @@ steps:
         from_secret: aws_acccess_key_id
       aws_secret_access_key:
         from_secret: aws_secret_access_key
+      RENOVATE_GITHUB_COM_TOKEN:
+        from_secret: github_com_token
       RENOVATE_PLATFORM: github
       RENOVATE_DRY_RUN: full
       LOG_LEVEL: info
@@ -56,6 +58,8 @@ steps:
         from_secret: aws_acccess_key_id
       aws_secret_access_key:
         from_secret: aws_secret_access_key
+      RENOVATE_GITHUB_COM_TOKEN:
+        from_secret: github_com_token
       LOG_LEVEL: info
       RENOVATE_PLATFORM: github
       RENOVATE_CONFIG_FILE: default.json
