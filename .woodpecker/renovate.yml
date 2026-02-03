@@ -67,12 +67,7 @@ steps:
       AWS_REGION: eu-central-1
 
     commands:
-      - echo -e $${PRIVATE_KEY} > /tmp/private_key.pem
-      # https://github.com/gagoar/github-app-installation-token
-      - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
-      - export GITHUB_TOKEN=$RENOVATE_TOKEN
-      - echo $RENOVATE_TOKEN
-      - renovate $${CI_REPO}
+      - renovate --token $(cat .github_token) $${CI_REPO}
     when:
       - event: cron
         cron: renovate
