@@ -13,9 +13,9 @@ steps:
       aws_secret_access_key:
         from_secret: aws_secret_access_key
       RENOVATE_PLATFORM: github
-      RENOVATE_GITHUB_APP_ID: 382538
-      RENOVATE_GITHUB_APP_INSTALLATION_ID: 41217779
-      RENOVATE_GITHUB_APP_PRIVATE_KEY:
+      GITHUB_APP_ID: 382538
+      GITHUB_INSTALLATION_ID: 41217779
+      GITHUB_PRIVATE_KEY:
         from_secret: private_key
       RENOVATE_DRY_RUN: full
       LOG_LEVEL: info
