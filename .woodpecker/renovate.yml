@@ -8,13 +8,15 @@ steps:
   renovate-dry:
     image: renovate/renovate:43
     environment:
-      PRIVATE_KEY:
-        from_secret: private_key
       aws_acccess_key_id:
         from_secret: aws_acccess_key_id
       aws_secret_access_key:
         from_secret: aws_secret_access_key
       RENOVATE_PLATFORM: github
+      RENOVATE_GITHUB_APP_ID: 382538
+      RENOVATE_GITHUB_APP_INSTALLATION_ID: 41217779
+      RENOVATE_GITHUB_APP_PRIVATE_KEY:
+        from_secret: private_key
       RENOVATE_DRY_RUN: full
       LOG_LEVEL: info
       RENOVATE_CONFIG_FILE: default.json
@@ -23,13 +25,6 @@ steps:
       AWS_REGION: eu-central-1
 
     pull: true
-    commands:
-      - echo -e $${PRIVATE_KEY} > /tmp/private_key.pem
-      # https://github.com/gagoar/github-app-installation-token
-      - export RENOVATE_TOKEN=$(npx github-app-installation-token --appId 382538 --installationId 41217779 --privateKeyLocation /tmp/private_key.pem)
-      - export GITHUB_TOKEN=$RENOVATE_TOKEN
-      - echo $RENOVATE_TOKEN
-      - renovate $${CI_REPO}
     when:
       - event: push
     backend_options:
