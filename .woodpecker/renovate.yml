@@ -5,6 +5,15 @@ when:
     - manual
 
 steps:
+  get-token:
+    image: ghcr.io/yyewolf/woodpecker-plugins/github-app-token
+    settings:
+      github_app_id: 382538
+      github_installation_id: 41217779
+      github_private_key_pem:
+        from_secret: private_key
+      output_file: .github_token
+
   renovate-dry:
     image: renovate/renovate:43
     environment:
@@ -13,10 +22,6 @@ steps:
       aws_secret_access_key:
         from_secret: aws_secret_access_key
       RENOVATE_PLATFORM: github
-      GITHUB_APP_ID: 382538
-      GITHUB_INSTALLATION_ID: 41217779
-      GITHUB_PRIVATE_KEY:
-        from_secret: private_key
       RENOVATE_DRY_RUN: full
       LOG_LEVEL: info
       RENOVATE_CONFIG_FILE: default.json
@@ -25,6 +30,8 @@ steps:
       AWS_REGION: eu-central-1
 
     pull: true
+    commands:
+      - renovate --token $(cat .github_token) $${CI_REPO}
     when:
       - event: push
     backend_options:
