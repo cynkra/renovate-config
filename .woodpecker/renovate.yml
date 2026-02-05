@@ -38,10 +38,10 @@ steps:
       kubernetes:
         resources:
           requests:
-            memory: 3000Mi
+            memory: 4000Mi
             cpu: 100m
           limits:
-            memory: 4000Mi
+            memory: 5000Mi
             cpu: 1000m
         tolerations:
           - key: "CI"
@@ -76,10 +76,10 @@ steps:
       kubernetes:
         resources:
           requests:
-            memory: 3000Mi
+            memory: 4000Mi
             cpu: 100m
           limits:
-            memory: 4000Mi
+            memory: 5000Mi
             cpu: 1000m
         tolerations:
           - key: "CI"
