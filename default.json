@@ -124,6 +124,8 @@
     // "!cynkra/rig-ubuntu-dbi"
   ],
   "platformAutomerge": true,
+  "branchConcurrentLimit": 3,
+  "prConcurrentLimit": 3,
   "optimizeForDisabled": true,
   "username": "renovate-cynkra[bot]",
   "gitAuthor": "Renovate cynkra [bot] <41217779+renovate-cynkra[bot]@users.noreply.github.com>",
