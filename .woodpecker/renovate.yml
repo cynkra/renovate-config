@@ -15,7 +15,7 @@ steps:
       output_file: .github_token
 
   renovate-dry:
-    image: renovate/renovate:43
+    image: renovate/renovate:44
     environment:
       aws_acccess_key_id:
         from_secret: aws_acccess_key_id
@@ -50,7 +50,7 @@ steps:
             effect: "NoSchedule"
 
   renovate:
-    image: renovate/renovate:43
+    image: renovate/renovate:44
     pull: true
     environment:
       PRIVATE_KEY:
