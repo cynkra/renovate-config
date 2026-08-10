@@ -18,7 +18,8 @@
     "cynkra/runner",
     "cynkra/aws-*",
     "cynkra/cynkraweb",
-    "cynkra/renovate-config"
+    "cynkra/renovate-config",
+    "cynkra/claude-code-web"
     // "!cynkra/cynkraweb-assets",
     // "!cynkra/FBEA",
     // "!cynkra/dynafilter",
